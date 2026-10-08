@@ -86,3 +86,5 @@ That means the design should serve photo media via a CDN, store feed data in an 
 10. When followers refresh their feed, both the photos and thumbnails are delivered directly from the CDN.
 
 ## Trade-offs
+- **Trade-off:** Speed vs freshness. **Gain:** Feed loading speed is dramatically improved by using in-memory caches and read replicas. **Cost:** A follower might not see a user's newly uploaded photo for a few seconds until the cache expires or database replication completes.
+- **Trade-off:** Simplicity vs scalability. **Gain:** Keeps photo upload responses immediate by offloading heavy thumbnail creation to background workers. **Cost:** Increases system complexity by requiring a message queue, background workers, and error-handling logic for failed jobs.
