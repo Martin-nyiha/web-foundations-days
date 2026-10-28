@@ -2,7 +2,7 @@
 
 ## The most difficult concept and how I overcame it
 
-The hardest concept for me was database design, especially explaining why a design is right instead of only listing the tables. I understood primary keys, foreign keys and join tables, but my first written justification was too general, and the reviewer pointed out that part of it described a different kind of system. I overcame this by rewriting it around the real rules in my own school database: a unique email, a grade between 0 and 100, and a composite key that stops a student being enrolled twice. Tying each idea, such as ACID, to a concrete example made it click, and I used the same thinking to stop double-booking in TicketHub.
+The hardest concept for me was database design, especially explaining why a design is right instead of only listing the tables. I understood primary keys, foreign keys and join tables, but my first written justification was too general, and the reviewer pointed out that part of it described a different kind of system. I overcame this by rewriting it around the real rules in my own school database: a unique email, a grade between 0 and 100, and a composite key that stops a student being enrolled twice. Tying each idea, such as ACID, to a concrete example made it click, and I used the same thinking to stop double-booking in TicketHub. There I used an atomic conditional UPDATE to hold a seat and a UNIQUE constraint on `tickets.seat_id` as the final safety net.
 
 ## What I would improve in my capstone
 
@@ -10,4 +10,4 @@ Based on the feedback on my QuickNotes system design project, I would improve my
 
 ## What I will learn next
 
-Next I want to build a full QuickNotes app with a real backend and database, so that notes are saved on a server instead of a practice API. After that I will learn a front-end framework such as React, so I can build larger interfaces from reusable components.
+Next I want to build a full QuickNotes app with a real backend and database, so that notes are saved on a server instead of a practice API. I also want to practise concurrency by testing my seat-hold query with two requests running at the same time, to see the "first one wins" behaviour for myself. After that I will learn a front-end framework such as React, so I can build larger interfaces from reusable components.
